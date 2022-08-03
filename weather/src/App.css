@@ -1,0 +1,61 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'monstseratt',sans-serif;
+}
+
+.app{
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 100vh;
+    background-image: url('./images/gorgeous-clouds-background-with-blue-sky-design_1017-25501.webp');
+    background-size: cover;
+    background-position: center;
+    transition: 0.4 ease-out;
+}
+ main{
+    background-color: linear-gradient( bottom,rgba(0,0,0,0.2) top, rgba(0,0,0,0.75));
+}
+.search-box{
+    width: 100%;
+}
+.search-box .search-bar{
+    width: 300px;
+    padding: 15px;
+    background: none;
+    border: none;
+    appearance: none;
+    outline: none;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 0px 0px 16px 16px;
+    box-shadow: 0px 5px rgba(0,0,0,0.2);
+    color: #313131;
+    font-style: 20px;
+    transition: 0.4 ease;
+}
+
+.search-box .search-bar:focus{
+    background-color: rgba(255,255,255,0.75);
+}
+
+.location-box .location{
+    color: #fff;
+    font-weight: 500;
+    font-size: 32px;
+    text-align: center;
+    text-shadow: 3px 3px rgba(50,50,70,0.5);
+}
+.location-box .date{
+    color: #fff;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 2px 2px rgba(50,50,70,0.5);
+
+}
