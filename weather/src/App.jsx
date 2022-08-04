@@ -3,8 +3,8 @@ import React from 'react'
 import { useState } from 'react';
 
 const api={
-  key:"030b55d8125c3142d283c3be75be8f77",
-  base:"https://api.openweathermap.org/data/2.0/"
+  key:"d210c91a4bmshca1b1f1261bbac8p1d939ejsne4e09850e233",
+  base:"https://visual-crossing-weather.p.rapidapi.com/forecast"
 }
 const  App=()=> {
 const [query, setQuery] = useState('')
