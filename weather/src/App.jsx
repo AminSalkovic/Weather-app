@@ -1,11 +1,25 @@
 import './App.css';
 import React from 'react'
+import { useState } from 'react';
 
 const api={
-  key:"f1dae29915049dab574cfeb82257a1df",
-  base:"https://openweathermap.org/data/2.5/"
+  key:"030b55d8125c3142d283c3be75be8f77",
+  base:"https://api.openweathermap.org/data/2.0/"
 }
 const  App=()=> {
+const [query, setQuery] = useState('')
+const[weather,setWeather]=useState({})
+
+const search = evt=>{
+  if(evt.key==="Enter"){
+    fetch(`${api.base}weather?q=${query}&untis=metric&APPID=${api.key}`)
+    .then(res=>res.json())
+    .then(result => {
+      setWeather(result)
+      setQuery('')
+    })
+  }
+}
   const dateBuilder=(d)=>{
     let months=["January","February","March","April","May","June","July","August","September","November","December"];
     let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -19,23 +33,27 @@ const  App=()=> {
     <div className="app">
          <main>
               <div className="search-box">
-                <input type="text"className='search-bar' placeholder='search...' />
+                <input type="text"className='search-bar' placeholder='search...' 
+                onChange={(e)=>setQuery(e.target.value)} 
+                value={query}
+                onKeyPress={search} />
               </div>
+              {(typeof weather.main!="undefined")?(
+
+                <div>
               <div className="location-box">
-                <div className="location">New Youk city,US</div>
+                <div className="location">{weather.name},{weather.sys.country}</div>
                 <div className="date">{dateBuilder(new Date())}</div>
               </div>
               <div className="weather-box">
-                <div className="temp">
-                  15^
-                </div>
-                <div className="weather">
-                  Sunny
-                </div>
+                <div className="temp">{Math.round(weather.main.temp)}</div>
+                <div className="weather">{weather.weather[0].main}</div>
+              </div> 
               </div>
+              ):('')}
          </main>
-    </div>
-  );
-}
+         </div>
+         );
+        }
 
 export default App;
